@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/scarlet">
+
+        <RelativeLayout
+            android:id="@+id/back_rl"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_go_back" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="新增地址"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="发货人"
+            android:textColor="@color/textGray"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/name_edit"
+            android:layout_width="0dp"
+            android:inputType="text"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@null"
+            android:drawableBottom="@drawable/line"
+            android:gravity="center_vertical"
+            android:hint="姓名"
+            android:maxLength="5"
+            android:maxLines="1"
+            android:nextFocusForward="@+id/phone_edit"
+            android:textColor="@color/textGray"
+            android:textColorHint="@color/textGray"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/textGray"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/sir_text"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:background="@drawable/radio_background"
+                android:button="@null"
+                android:checked="true"
+                android:drawablePadding="6dp"
+                android:gravity="center"
+                android:text="先生"
+                android:textColor="@drawable/radio_textcolor"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/madam_text"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/radio_background"
+                android:button="@null"
+                android:clickable="true"
+                android:drawablePadding="6dp"
+                android:gravity="center"
+                android:text="女士"
+                android:textColor="@drawable/radio_textcolor"
+                android:textSize="12sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="联系电话"
+            android:textColor="@color/textGray"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/phone_edit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@null"
+                android:drawableBottom="@drawable/line"
+                android:gravity="center_vertical"
+                android:hint="发货人电话"
+                android:inputType="phone"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:nextFocusForward="@+id/address_layout"
+                android:textColor="@color/textGray"
+                android:textColorHint="@color/textGray"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/add_phone_book_layout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:background="@mipmap/add" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:gravity="center"
+                    android:text="通讯录"
+                    android:textColor="@color/red"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="地址"
+            android:textColor="@color/textGray"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/address_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="点击选择"
+                android:maxLines="2"
+                android:textColor="@color/textGray"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="13dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/icon_right" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/textGray"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/address_edit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@null"
+            android:drawableBottom="@drawable/line"
+            android:gravity="center_vertical"
+            android:hint="详细地址"
+            android:maxLines="1"
+            android:nextFocusDown="@+id/house_number_edit"
+            android:textColor="@color/textGray"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="区域街道"
+            android:textColor="@color/textGray"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:hint="点击选择区域"
+                android:gravity="center_vertical"
+                android:id="@+id/street"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:background="@null"
+                android:onClick="onClick"
+                android:textColor="@color/textGray"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="13dp"
+                android:layout_gravity="center"
+                android:background="@mipmap/icon_right" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="详细地址"
+            android:textColor="@color/textGray"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/addr_des"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@null"
+            android:drawableBottom="@drawable/line"
+            android:gravity="center_vertical"
+            android:hint="请输入详细地址"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:textColor="@color/textGray"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="门牌号"
+            android:textColor="@color/textGray"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/house_number_edit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@null"
+            android:drawableBottom="@drawable/line"
+            android:gravity="center_vertical"
+            android:inputType="text"
+            android:hint="例如：金盾小区2栋2单元5-1"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:textColor="@color/textGray"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="标签"
+            android:textColor="@color/textGray"
+            android:textSize="14sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/home_text"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:background="@drawable/radio_background"
+                android:button="@null"
+                android:checked="true"
+                android:clickable="true"
+                android:drawablePadding="6dp"
+                android:gravity="center"
+                android:text="家"
+                android:textColor="@drawable/radio_textcolor"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/company_text"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/radio_background"
+                android:button="@null"
+                android:clickable="true"
+                android:drawablePadding="6dp"
+                android:gravity="center"
+                android:text="公司"
+                android:textColor="@drawable/radio_textcolor"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/school_text"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:background="@drawable/radio_background"
+                android:button="@null"
+                android:clickable="true"
+                android:drawablePadding="6dp"
+                android:gravity="center"
+                android:text="学校"
+                android:textColor="@drawable/radio_textcolor"
+                android:textSize="12sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <com.zsh.shopclient.view.CheckLinearLayout
+        android:id="@+id/addr_defult"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center_vertical"
+        android:onClick="onClick"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="默认"
+            android:textColor="#000" />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/item_addr_selector"
+            android:button="@null" />
+    </com.zsh.shopclient.view.CheckLinearLayout>
+
+    <Button
+        android:id="@+id/ensure_bt"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_corners"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

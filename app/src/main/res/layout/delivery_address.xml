@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/text_addAddress">
+        <include layout="@layout/recycler"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/text_addAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/text_buyImmediately"
+        android:background="@color/scarlet"
+        android:padding="@dimen/margin16"
+        android:text="@string/addAddress"
+        android:textSize="@dimen/size16"
+        android:textColor="@color/white"/>
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:listDivider">@drawable/shape_recycler_drivider</item>
+    </style>
+    android状态栏一体化(沉浸式状态栏) http://blog.csdn.net/jdsjlzx/article/details/41643587
+    Android 5.0 如何实现将布局的内容延伸到状态栏? https://www.zhihu.com/question/31468556
+    去掉Activity上面的状态栏getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    <style name="Notitle" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        Android 沉浸式状态栏完美实现 http://blog.csdn.net/tyzlmjj/article/details/50890847
+        <item name="android:fitsSystemWindows">false</item>如果想让一个View的图像显示在状态栏下,那么就在View的XML布局文件中添加属性android:fitsSystemWindows="true"
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>//去除title另一种方式requestWindowFeature(Window.FEATURE_NO_TITLE);
+        <!--<item name="android:windowBackground">@mipmap/ic_launcher</item>-->
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowSoftInputMode">stateHidden|adjustUnspecified|stateUnchanged</item>
+        <item name="android:configChanges">orientation|keyboardHidden</item>
+       <item name="android:windowTranslucentNavigation">true</item>
+        <!--<item name="android:screenOrientation">portrait</item>-->
+    </style>
+    <style name="spinnerStyle" parent="Base.Widget.AppCompat.Spinner">
+        <!--<item name="android:background">@drawable/spinner_background</item>-->
+        <item name="android:colorControlNormal">@color/white</item>
+        <item name="android:dividerHeight">@dimen/line1</item>
+        <item name="android:divider">@color/backgroundGray</item>
+    </style>
+    <style name="DiyRatingBar" parent="Base.Widget.AppCompat.RatingBar">"@android:style/Widget.RatingBar"
+        <item name="android:progressDrawable">@drawable/selector_rating</item>
+        <item name="android:minHeight">@dimen/margin8</item>
+        <item name="android:maxHeight">@dimen/margin8</item>
+    </style>
+    <style name="DrawerAlphaAnimation">
+        <item name="android:windowEnterAnimation">@animator/fade_in</item>
+        <item name="android:windowExitAnimation">@animator/fade_out</item>
+    </style>
+    <style name="BottomAlphaAnimation">
+        <item name="android:windowEnterAnimation">@animator/bottom_in</item>
+        <item name="android:windowExitAnimation">@animator/bottom_out</item>
+    </style>
+</resources>

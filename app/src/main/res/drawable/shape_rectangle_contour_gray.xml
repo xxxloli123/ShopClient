@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    //android 用 XML 自定义边框(只上下边框有色)http://blog.csdn.net/yaya_soft/article/details/42915295
+    <solid android:color="#00ffffff"/>
+    <size android:width="32dp" android:height="16dp"/>
+    <corners android:radius="4dp" />
+    <stroke android:width="2px" android:color="#ffb7b7b7"/>
+</shape>

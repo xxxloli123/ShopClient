@@ -1,0 +1,57 @@
+//Error:Dependency MaoMaoDriver:qrcode:unspecified on project app resolves to an APK archive which is not supported as a compilation dependency. File: D:\Android\project\MaoMaoDriver\qrcode\build\outputs\apk\qrcode-release-unsigned.apk
+//apply plugin: 'com.android.application'
+//Error:Library projects cannot set applicationId. applicationId is set to 'com.xx.qrcode' in default config.
+//apply plugin: 'com.android.application'
+apply plugin:'com.android.library'
+//Android NDK开发指南（一） Application.mk文件 http://www.cnblogs.com/yaozhongxiao/archive/2012/03/06/2381586.html
+//Android.mk和Application.mk文件中部分变量说明 http://blog.csdn.net/bupt073114/article/details/45030781
+//Android JNI学习笔记（三）－编译文件Android.mk、Application.mk 与camke http://blog.csdn.net/qq_21430549/article/details/53365915
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        //applicationId "com.xx.qrcode"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        /*ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+            //abiFilters("armeabi", "armeabi-v7a", "x86", "mips")
+        }
+        packagingOptions {
+            exclude "lib/arm64-v8a/librealm-libzbar.so"
+        }*/
+    }
+    /*splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'x86_64', 'armeabi-v7a', 'armeabi'
+            universalApk false
+        }
+    }*/
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    /*sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }*/
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}

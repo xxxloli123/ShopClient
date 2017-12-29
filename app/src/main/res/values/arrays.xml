@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources  xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <integer-array name="shotcut">
+        <item>@mipmap/icon_shotcut_hui_di</item>
+        <item>@mipmap/icon_shotcut_life_supermarket</item>
+        <item>@mipmap/icon_shotcut_varitey_dishes</item>
+        <item>@mipmap/icon_shotcut_flowers_cakes</item>
+        <item>@mipmap/icon_shotcut_infant_mom</item>
+        <item>@mipmap/icon_shotcut_specialsnacks</item>
+        <item>@mipmap/icon_shotcut_angling</item>
+        <item>@mipmap/icon_shotcut_cate</item>
+    </integer-array>
+    <integer-array name="titles">
+        <item>@string/huiDiDeliver</item>
+        <item>@string/lifeSupermarket</item>
+        <item>@string/varietyOfFresh</item>
+        <item>@string/flowersCakes</item>
+        <item>@string/infantMom</item>
+        <item>@string/specialCate</item>
+        <item>@string/catering</item>
+        <item>@string/exclusiveShop</item>
+    </integer-array>
+    <string-array name="types">
+        <item>huiDi</item>
+        <item>vegetable</item>
+        <item>specialsnacks</item>
+        <item>baby</item>
+        <item>cate</item>
+        <item>supermarket</item>
+        <item>flowercake</item>
+        <item>fishing</item>
+    </string-array>
+
+    <integer-array name="wayIcons">
+        <item>@mipmap/icon_meal</item>
+        <item>@mipmap/icon_greens</item>
+    </integer-array>
+    <integer-array name="wayTitles">
+        <item>@string/homeDelivery</item>
+        <item>@string/toShop</item>
+    </integer-array>
+
+    <integer-array name="orderIcons">
+        <item>@mipmap/icon_order_all</item>
+        <item>@mipmap/icon_pending_pay</item>
+        <item>@mipmap/icon_waiting_bills</item>
+        <item>@mipmap/icon_site</item>
+        <item>@mipmap/icon_make_adal</item>
+        <item>@mipmap/icon_order_cancelation</item>
+        <item>@mipmap/icon_order_remain_evaluated</item>
+    </integer-array>
+    <integer-array name="orderKeys">
+        <item>@string/all</item>
+        <item>@string/pendingPay</item>
+        <item>@string/waitingBills</item>
+        <item>@string/inYheDistribution</item>
+        <item>@string/offTheStocks</item>
+        <item>@string/alreadyCancelation</item>
+        <item>@string/alreadyClose</item>
+    </integer-array>
+</resources>

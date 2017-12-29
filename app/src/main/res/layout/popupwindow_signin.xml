@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/bg_signin"
+    android:layout_gravity="center"
+    android:alpha="1">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/space_between96"
+        android:drawableTop="@mipmap/icon_gold"
+        android:drawablePadding="@dimen/margin8"
+        android:text="signIn"
+        android:textSize="@dimen/size24"
+        android:textColor="@color/scarlet"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin8"
+        android:gravity="center"
+        android:text="continue"
+        android:textColor="@color/black"
+        android:textSize="@dimen/size16"/>
+</LinearLayout>

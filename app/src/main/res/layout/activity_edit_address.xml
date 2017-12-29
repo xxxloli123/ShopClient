@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/scarlet">
+        <RelativeLayout
+            android:id="@+id/back_rl"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:onClick="onClick"
+            android:paddingLeft="16dp">
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/icon_go_back" />
+        </RelativeLayout>
+        <EditText
+            android:id="@+id/addr_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@+id/back_rl"
+            android:background="@drawable/shape_rectangle_circular_white"
+            android:gravity="center"
+            android:hint="输入搜索地址"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:textSize="16sp" />
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/layout_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.amap.api.maps2d.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="220dp" />
+            <com.zsh.shopclient.widget.PagerSlidingTabStrip
+                android:id="@+id/pager_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/white"
+                android:textColor="@color/textGray"
+                android:textSize="12sp"
+                app:pstsDividerColor="@android:color/transparent"
+                app:pstsIndicatorColor="@color/scarlet"
+                app:pstsIndicatorHeight="1dp"
+                app:pstsShouldExpand="true"
+                app:pstsSmoothScrollWhenClickTab="false"
+                app:pstsTabPaddingLeftRight="0dp"
+                app:pstsTextSelectedColor="@color/scarlet"
+                app:pstsUnderlineColor="@android:color/transparent" />
+            <android.support.v4.view.ViewPager
+                android:id="@+id/addr_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,104 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'//Android studio3.0以前使用2.
+//Android Device Monitor 文件管理的常见问题 http://blog.csdn.net/aurorayqz/article/details/65705300
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    //Android Gradle Build Error:Some file crunching failed, see logs for detailst通常都是后缀名修改造成的解决办法 http://www.cnblogs.com/why168888/p/5925756.html
+    //aaptOptions.cruncherEnabled = false
+    //aaptOptions.useNewCruncher = false
+    defaultConfig {
+        applicationId "com.zsh.shopclient"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        /*
+        * TransformException:com.android.ide.common.process.ProcessException:java . util . concurrent。ExecutionException:com.
+        * android.dex.DexIndexOverflowException:方法ID不是在(0,0 xffff):65536
+        * AndroidStudio利用android-support-multidex解决65536问题64k问题 http://blog.csdn.net/yanzhenjie1003/article/details/51818269
+        * android studio 65536  http://blog.csdn.net/u010499721/article/details/47834487
+        * Android Studio 解决方法数超过65536，导致dex无法生成的问题 http://blog.csdn.net/ghq2159227/article/details/50537586
+        * 在项目的build.gradle文件的dependencies 节中添加分包设置 compile 'com.android.support:multidex:'
+        * */
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        /*ndk {//Android Studio 打包CPU类型兼容 http://blog.csdn.net/mengbjy/article/details/53518289
+            //根据需要 自行选择添加的对应cpu类型的.so库。
+            abiFilters 'armeabi'//, 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }*/
+        manifestPlaceholders = [
+                XG_ACCESS_ID:"2100269996",
+                XG_ACCESS_KEY : "AUR59G75BE9U",
+        ]
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions{
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support:appcompat-v7:26.+'
+    //compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    //implementation project(':linknet')//android studio 3.0
+    compile project(':linknet')
+    compile project(':qrcode')
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    /**
+     *     butterknife:8.8.1的ButterKnife.bind(this);控件报空指针
+     *     1. project下的build.gradle的dependencies中添加classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8';
+     *     2.app下的builde.gradle的头部添加apply plugin: 'com.neenbedankt.android-apt',
+     *     3.app下的builde.gradle的dependencies中添加apt 'com.jakewharton:butterknife-compiler:8.4.0'
+     *     上面的方式针对Android studio3.0以前的版本可用;更新3.0后 http://blog.csdn.net/pjingying/article/details/71975805?utm_source=itdadao&utm_medium=referral
+     *     报错 android-apt plugin is incompatible with future version of Android Gradle plugin. use 'annotationPro
+     *     去掉上面的android studio 3.0以前版本的所有步骤在app下的builde.gradle的dependencies中添加
+     *     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+     */
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //Android studio3.0以前使用3.
+    //annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.github.bumptech.glide:glide:4.2.0'
+    compile 'com.uwetrottmann.photoview:library:1.2.4'
+    //implementation 'com.google.okhttp:okhttp:20120626'
+    //implementation 'com.squareup.okhttp3:okhttp:3.9.0'//android studio 3.0
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+    compile files('libs/alipaySdk-20170922.jar')
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    //compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    //高德地图
+    compile 'com.amap.api:navi-3dmap:latest.integration'
+    compile 'com.amap.api:location:latest.integration'
+    compile project(':map')
+    compile files('libs/Msc.jar')
+    //信鸽推送
+    compile 'com.tencent.xinge:xinge:3.1.81-alpha'
+    compile 'com.tencent.wup:wup:1.0.0.E-alpha'
+    compile 'com.tencent.mid:mid:3.72.4-alpha'
+    compile files('libs/MobCommons-2017.1024.1907.jar')
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'in.srain.cube:ptr-load-more:1.0.6'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile project(':zxing')
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/scarlet">
+        <ImageView
+            android:id="@+id/image_goBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:padding="16dp"
+            android:src="@mipmap/icon_go_back"/>
+        <android.support.v7.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin32"
+            android:layout_marginTop="@dimen/margin8"
+            android:layout_marginRight="@dimen/margin16"
+            android:layout_marginBottom="@dimen/margin8"
+            android:background="@drawable/shape_rectangle_circular_white"
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
+            app:queryHint="@string/searchHint"
+            android:iconifiedByDefault="false"
+            android:focusable="true"
+            android:inputType="textFilter"
+            android:textColor="@color/black"
+            android:textColorHint = "@color/textGray" />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="blue">#4c90f9</color>
+    <color name="act_background">#efefef</color>
+    <color name="phone_bg">#f6f6f6</color>
+    <drawable name="transparent">#00000000</drawable>
+    <color name="transparent">#00000000</color>
+
+    <color name="scarlet">#c70107</color>
+    <color name="red">#FF0000</color>
+    <color name="orangeColur">#e45c15</color>
+    <color name="white">#ffffffff</color>
+    <color name="backgroundGray">#f0f0f0</color>
+    <color name="textGray">#929292</color>
+    <color name="textDarkgray">#1a1a1a</color>
+    <color name="black">#000000</color>
+    <color name="headskyBlue">#033adf</color>
+    <color name="darkBlue">#0410fa</color>
+    <color name="lightBlue">#7fcef3</color>
+    <color name="brilliantLightGreen">#befa77</color>
+    <color name="brilliantLightBlueness">#64faeb</color>
+    <color name="peachPink">#f9e3e5</color>
+    <color name="grayPink">#bea1a3</color>
+    <color name="cambridgeBlue">#d0eeee</color>
+    <color name="brown">#ccb89a</color>
+
+    <color name="whiteHazyBackground">#88ffffff</color>
+    <color name="clarityWhiteA0">#aa000000</color>
+    <color name="lucencyBlack60">#66000000</color>
+    <color name="lucencyBlack48">#44888888</color>
+    <color name="lucencyBlack6f">#66ffffff</color>
+    <color name="lucencyScarlet">#00c70107</color>
+    <color name="lucency">#00000000</color>
+</resources>

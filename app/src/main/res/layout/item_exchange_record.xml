@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#3c3c3c"
+            android:textSize="13sp"
+            android:text="香蕉君或许会迟到"
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="8dp"
+            android:layout_below="@+id/name_tv"
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            android:text="2333"
+            android:id="@+id/price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginRight="6dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:textColor="#6b6b6b"
+            android:textSize="13sp"
+            android:text="2117.23.33"
+            android:id="@+id/time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</LinearLayout>

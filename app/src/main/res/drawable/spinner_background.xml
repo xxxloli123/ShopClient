@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    Android Spinner不显示下拉箭头解决方案 http://blog.csdn.net/Notzuonotdied/article/details/53072587
+    spinner去掉下划线,和更改右下角小图标 http://blog.csdn.net/yginger/article/details/53468156
+    如何更改Spinner控件右侧的箭头颜色 http://blog.csdn.net/baidu_27196493/article/details/77649943
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <padding android:bottom="3dp" android:right="3dp" />
+                </shape>
+            </item>
+            <item>
+                <bitmap android:gravity="center_vertical" android:src="@mipmap/icon_location" />
+            </item>
+        </layer-list>
+    </item>
+</selector>

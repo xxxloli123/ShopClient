@@ -1,0 +1,34 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="space_between8">8dp</dimen>
+    <dimen name="space_between12">12dp</dimen>
+    <dimen name="space_between16">16dp</dimen>
+    <dimen name="space_between20">20dp</dimen>
+    <dimen name="space_between24">24dp</dimen>
+    <dimen name="space_between32">32dp</dimen>
+    <dimen name="space_between40">40dp</dimen>
+    <dimen name="space_between48">48dp</dimen>
+    <dimen name="space_between64">64dp</dimen>
+    <dimen name="space_between80">80dp</dimen>
+
+    <dimen name="text_size8">8sp</dimen>
+    <dimen name="text_size12">12sp</dimen>
+    <dimen name="text_size16">16sp</dimen>
+    <dimen name="text_size20">20sp</dimen>
+    <dimen name="text_size24">24sp</dimen>
+    <dimen name="text_size32">32sp</dimen>
+
+    <dimen name="height100">100dp</dimen>
+    <dimen name="width128">128dp</dimen>
+    <dimen name="width256">256dp</dimen>
+    <dimen name="width300">300dp</dimen>
+    <dimen name="width320">320dp</dimen>
+
+    <dimen name="line1">1dp</dimen>
+    <dimen name="line2">2dp</dimen>
+    <dimen name="line4">4dp</dimen>
+
+    <dimen name="pxLine">1px</dimen>
+</resources>

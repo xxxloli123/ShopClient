@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">二维码扫描</string>
+    <string name="scan_tips">将二维码图片对准扫描框即可自动扫描</string>
+    
+    <string name="skipActivity">skipActivity</string>
+    <string name="scanResult">scanResult</string>
+</resources>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    >
+    <!--头部-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/red">
+
+        <RelativeLayout
+            android:id="@+id/back_rl"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/icon_go_back" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="掌币商城"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:background="@mipmap/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/sb_tv"
+                android:textSize="14dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/scarlet"
+                android:text=" 掌币  233"
+                android:drawableLeft="@mipmap/icon_gold"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_gravity="center_vertical"
+            android:background="@color/gray"
+            android:layout_width="1dp"
+            android:layout_height="22dp"></View>
+
+
+        <LinearLayout
+            android:id="@+id/record_ll"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/textDarkgray"
+                android:text=" 兑换记录"
+                android:drawableLeft="@mipmap/icon_tab_order_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:paddingBottom="6dp"
+        android:gravity="bottom"
+        android:paddingLeft="13dp"
+        android:text="大家都在兑"
+        android:textColor="@color/textDarkgray"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <GridView
+        android:horizontalSpacing="6dp"
+        android:verticalSpacing="6dp"
+        android:numColumns="2"
+        android:id="@+id/commodity_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </GridView>
+
+</LinearLayout>

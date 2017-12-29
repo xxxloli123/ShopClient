@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="offset_title">5dp</dimen>
+    <dimen name="width_title_leftImg">30dp</dimen>
+    <dimen name="title_text_size">15sp</dimen>
+    <dimen name="poi_field_size">14sp</dimen>
+
+    <dimen name="margin4">4dp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="margin16">16dp</dimen>
+    <dimen name="margin24">24dp</dimen>
+    <dimen name="margin32">32dp</dimen>
+    <dimen name="margin40">40dp</dimen>
+    <dimen name="margin48">48dp</dimen>
+    <dimen name="margin50">50dp</dimen>
+    <dimen name="margin60">60dp</dimen>
+    <dimen name="space_between64">64dp</dimen>
+    <dimen name="space_between80">80dp</dimen>
+    <dimen name="space_between96">96dp</dimen>
+    <dimen name="width100">100dp</dimen>
+    <dimen name="width128">128dp</dimen>
+    <dimen name="width160">160dp</dimen>
+    <dimen name="width200">200dp</dimen>
+    <dimen name="width256">256dp</dimen>
+
+    <dimen name="size8">8sp</dimen>
+    <dimen name="size12">12sp</dimen>
+    <dimen name="size16">16sp</dimen>
+    <dimen name="size20">20sp</dimen>
+    <dimen name="size24">24sp</dimen>
+    <dimen name="size32">32sp</dimen>
+
+    <dimen name="line1">1px</dimen>
+    <dimen name="interval">1dp</dimen>
+</resources>

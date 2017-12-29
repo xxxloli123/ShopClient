@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.zsh.shopclient">
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon_app"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Notitle"
+        tools:replace="android:icon,android:theme">
+        <activity android:name=".aPresenter.GuideActivity">
+
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity android:name=".aPresenter.LaunchActivity" android:theme="@style/Notitle"/>
+
+        <activity android:name=".aPresenter.MainActivity" android:theme="@style/Notitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".aPresenter.LoginActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.AgreementActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.ShopActivity" android:theme="@style/Notitle"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".aPresenter.ShopListActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.EditAddressActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.RecommendActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.SpeedyActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.CommodityParticularsActivity" android:theme="@style/Notitle"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".aPresenter.ShoppingCartActivity" android:theme="@style/Notitle"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".aPresenter.SearchActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.LineProjectActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.BusRouteDetailActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.NaviActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.MerchantParticularsActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.EvaluateActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.IntelligentBroadcastActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.CloseAccountActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.DeliveryAddressActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.ReceiptAddressActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.NewAddressActivity" android:theme="@style/Notitle"></activity>
+        <activity android:name=".aPresenter.DiscountCouponActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.AddRegionActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.BookingSeatsActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.SpecialOfferActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.SbShopActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.SbDetailsActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.ExchangeRecordActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.CurrencyShopActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.ConversionRecordActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.CommodityDetailsActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.MerchantActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.LuckActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.SetActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.VIPActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.RecommentdAwardActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.HelpActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".aPresenter.ShareDetailActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.OrderInfoActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.AppraiseActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.ComplainActivity" android:theme="@style/Notitle"/>
+        <activity android:name=".aPresenter.ExceptionActivity" android:theme="@style/Notitle"/>
+        <service android:name=".service.TimeService" android:theme="@style/Notitle"/>
+        <activity android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <receiver
+            android:name=".receiver.MessageReceiver"
+            android:exported="false">
+            <intent-filter>
+                <!-- 接收消息透传 -->
+                <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE"/>
+                <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
+                <action android:name="com.tencent.android.tpush.action.FEEDBACK"/>
+            </intent-filter>
+        </receiver>
+        <!--<meta-data android:name="com.amap.api.v2.apikey" android:value="7887f35948c882f15ce267eb1f42ea33"/>-->
+        <meta-data android:name="Mob-AppKey" android:value="2242835c48d21"/>
+        <meta-data android:name="Mob-AppSecret" android:value="7230341b6f3bfcca1cd2bfe5896aa232"/>
+        <activity
+            android:name="cn.sharesdk.demo.wxapi.WXEntryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!--集成line客户端登录授权，需要添如下格式的过滤器-->
+            <intent-filter>
+                <data android:scheme="line.1477692153" />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.sharesdk.tencent.qq.ReceiveActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent100371282" />
+            </intent-filter>
+        </activity>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+</manifest>
