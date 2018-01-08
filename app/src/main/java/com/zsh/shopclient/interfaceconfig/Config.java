@@ -62,6 +62,11 @@ public interface Config {
     /**
      * 修改收货地址
      */
+    String GetSbRecording = "slowlife/appshopuser/queryuserintegralrecords";
+
+    /**
+     * 修改收货地址
+     */
     String EDITADDR = "slowlife/appuser/userupdateaddresses";
 
     /**

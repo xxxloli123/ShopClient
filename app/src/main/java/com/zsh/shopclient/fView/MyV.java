@@ -135,7 +135,6 @@ public class MyV extends BaseView implements OkHttpCallback.Impl {
                 if (isLogin())activity.startActivity(new Intent(activity, LoginActivity.class));
                 else activity.startActivity(new Intent(activity, RecommentdAwardActivity.class));
                 break;
-
         }
     }
 

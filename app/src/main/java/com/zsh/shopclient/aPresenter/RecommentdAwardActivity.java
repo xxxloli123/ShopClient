@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.DisplayUtil;
+import com.google.gson.Gson;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -32,7 +34,11 @@ import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 import com.xxx.skynet.sharedPreference.IOSharedPreferences;
 import com.zsh.shopclient.R;
+import com.zsh.shopclient.adapter.SbRecordingAdapter;
+import com.zsh.shopclient.http.OkHttp;
+import com.zsh.shopclient.http.OkHttpCallback;
 import com.zsh.shopclient.interfaceconfig.Config;
+import com.zsh.shopclient.model.SbRecording;
 import com.zsh.shopclient.tool.SimpleCallback;
 
 import org.json.JSONArray;
@@ -41,7 +47,10 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 
 import okhttp3.Callback;
 import okhttp3.MultipartBody;
@@ -53,12 +62,14 @@ import okhttp3.RequestBody;
  * Created by Administrator on 2017/1/23 0023.
  */
 
-public class RecommentdAwardActivity extends BaseActivity2 implements View.OnClickListener, UMShareListener {
+public class RecommentdAwardActivity extends BaseActivity2 implements View.OnClickListener, UMShareListener,OkHttpCallback.Impl {
     private RelativeLayout backRl, activeRule;
     private LinearLayout wechatLayout, qqLayout, scanCodeLayout, earningsLayout, successInvitedLayout, noInviteLayout;
     private TextView earningsText, numberPeopleText;
     private ListView earningsListview;
     private Adapter adapter;
+    private ArrayList<SbRecording> sbRecordings;
+    private SbRecordingAdapter sbRecordingAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,17 +77,26 @@ public class RecommentdAwardActivity extends BaseActivity2 implements View.OnCli
         setContentView(R.layout.activity_recommend_award_winning);
         //ButterKnife.bind(this);
         initView();
-        RequestBody requestBody = new MultipartBody.Builder()
-                .setType(MultipartBody.FORM)
-                .addFormDataPart("userId", IOSharedPreferences.inString(this,getString(R.string.user),getString(R.string.userId)))
-                .addFormDataPart("startPage", "1")
-                .addFormDataPart("pageSize", "1000")
-                .build();
-        Request request = new Request.Builder()
-                .post(requestBody)
-                .url(Config.Url.getUrl(Config.RECOMMEND))
-                .build();
-        new OkHttpClient().newCall(request).enqueue(callback);
+//        RequestBody requestBody = new MultipartBody.Builder()
+//                .setType(MultipartBody.FORM)
+//                .addFormDataPart("userId", IOSharedPreferences.inString(this,getString(R.string.user),getString(R.string.userId)))
+//                .addFormDataPart("startPage", "1")
+//                .addFormDataPart("pageSize", "1000")
+//                .build();
+//        Request request = new Request.Builder()
+//                .post(requestBody)
+//                .url(Config.Url.getUrl(Config.RECOMMEND))
+//                .build();
+//        new OkHttpClient().newCall(request).enqueue(callback);
+        loadData();
+    }
+
+    private void loadData() {
+//        参数：[userId, startPage]
+        Map<String, Object> map = new HashMap<>();
+        map.put("userId", IOSharedPreferences.inString(this, getString(R.string.user), getString(R.string.userId)));
+        map.put("startPage","1");
+        OkHttp.Call(Config.Url.getUrl(Config.GetSbRecording), map, this);
     }
 
     /**
@@ -142,9 +162,7 @@ public class RecommentdAwardActivity extends BaseActivity2 implements View.OnCli
                 break;
         }
     }
-
-
-
+    
     private void share(SHARE_MEDIA platform) {
         String url = "";
         url = Config.Url.getUrl(Config.DOWNLOAD1);
@@ -159,8 +177,7 @@ public class RecommentdAwardActivity extends BaseActivity2 implements View.OnCli
                 .setCallback(this);
         share.share();
     }
-
-
+    
     private void showZxImg() {
         try {
             String url = "";
@@ -254,28 +271,50 @@ public class RecommentdAwardActivity extends BaseActivity2 implements View.OnCli
         Toast.makeText(this, "取消分享", Toast.LENGTH_SHORT).show();
     }
 
-    private Callback callback = new SimpleCallback() {
-        @Override
-        public void onSuccess(String tag, JSONObject json) throws JSONException {
-            numberPeopleText.setText(json.getString("NormalNumber"));
-            int p = json.getInt("NormalNumber");
-            double count = json.getJSONObject("recommend").getInt("unitPrice");
-            earningsText.setText(String.valueOf(p * count));
-            if (json.has("nextrecommend"))
-                ((TextView) findView(R.id.price)).setText(
-                        (json.getJSONObject("nextrecommend").getDouble("unitPrice") *
-                                json.getJSONObject("nextrecommend").getInt("number")) + "元");
-            else
-                ((TextView) findView(R.id.price)).setText("*元");
-            JSONArray arr = json.getJSONObject("recommendsInfo").getJSONArray("aaData");
-            adapter = new Adapter(RecommentdAwardActivity.this, arr);
-            earningsListview.setAdapter(adapter);
-            noInviteLayout.setVisibility(View.GONE);
-            earningsListview.setVisibility(View.VISIBLE);
+//    private Callback callback = new SimpleCallback() {
+//        @Override
+//        public void onSuccess(String tag, JSONObject json) throws JSONException {
+//            numberPeopleText.setText(json.getString("NormalNumber"));
+//            int p = json.getInt("NormalNumber");
+//            double count = json.getJSONObject("recommend").getInt("unitPrice");
+//            earningsText.setText(String.valueOf(p * count));
+//            if (json.has("nextrecommend"))
+//                ((TextView) findView(R.id.price)).setText(
+//                        (json.getJSONObject("nextrecommend").getDouble("unitPrice") *
+//                                json.getJSONObject("nextrecommend").getInt("number")) + "元");
+//            else
+//                ((TextView) findView(R.id.price)).setText("*元");
+//            JSONArray arr = json.getJSONObject("recommendsInfo").getJSONArray("aaData");
+//            adapter = new Adapter(RecommentdAwardActivity.this, arr);
+//            earningsListview.setAdapter(adapter);
+//            noInviteLayout.setVisibility(View.GONE);
+//            earningsListview.setVisibility(View.VISIBLE);
+//        }
+//    };
 
+    @Override
+    public void onSuccess(Object tag, JSONObject json) throws JSONException {
+        JSONArray arr = json.getJSONArray("listRecords");
+        if (arr.length() == 0) return;
+        sbRecordings = new ArrayList<>();
+        Gson gson = new Gson();
+        for (int i = 0; i < arr.length(); i++) {
+            sbRecordings.add(gson.fromJson(arr.getString(i), SbRecording.class));
         }
-    };
+        sbRecordingAdapter = new SbRecordingAdapter(this, sbRecordings);
+        earningsListview.setAdapter(sbRecordingAdapter);
+    }
 
+    @Override
+    public void fail(Object tag, int code, JSONObject json) throws JSONException {
+
+    }
+
+    @NonNull
+    @Override
+    public Context getContext() {
+        return this;
+    }
 
     class Adapter extends BaseAdapter {
         Context context;
